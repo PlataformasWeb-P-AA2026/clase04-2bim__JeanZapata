@@ -8,12 +8,12 @@ body {
 }
 
 section {
-  background: #F4AB14;
+  background: #fdfdfd;
 }
 
 header {
-  background: #034275;
-  color: #FFF;
+  background: #dede06;
+  color: #ffffff;
 }
 /* manejo de las características de la etiqueta table*/
 th, td {
@@ -76,6 +76,6 @@ label {
 }
 
 footer{
-  background: #5E5E5E;
-  color: #FFF;
+  background: #e6e0e0;
+  color: #1e0dd8;
 }
