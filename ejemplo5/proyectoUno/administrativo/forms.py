@@ -54,6 +54,30 @@ class NumeroTelefonicoForm(ModelForm):
         fields = ['telefono', 'tipo', 'estudiante']
 
 
+class NumeroTelefonicoForm(ModelForm):
+    class Meta:
+        model = NumeroTelefonico
+        fields = ['telefono', 'tipo', 'estudiante']
+
+    def clean_telefono(self):
+        valor = self.cleaned_data["telefono"].strip()
+
+        if not valor.isdigit():
+            raise forms.ValidationError("Ingrese solo números.")
+
+        if len(valor) != 10:
+            raise forms.ValidationError("Ingrese un número de teléfono con 10 dígitos.")
+
+        codigo = valor[0:3]
+
+        if codigo != "099" and codigo != "098":
+            raise forms.ValidationError(
+                "Solo se permiten números que empiecen con 099 para Claro o 098 para Movistar."
+            )
+
+        return valor
+
+
 class NumeroTelefonicoEstudianteForm(ModelForm):
 
     def __init__(self, estudiante, *args, **kwargs):
@@ -65,3 +89,21 @@ class NumeroTelefonicoEstudianteForm(ModelForm):
     class Meta:
         model = NumeroTelefonico
         fields = ['telefono', 'tipo', 'estudiante']
+
+    def clean_telefono(self):
+        valor = self.cleaned_data["telefono"].strip()
+
+        if not valor.isdigit():
+            raise forms.ValidationError("Ingrese solo números.")
+
+        if len(valor) != 10:
+            raise forms.ValidationError("Ingrese un número de teléfono con 10 dígitos.")
+
+        codigo = valor[0:3]
+
+        if codigo != "099" and codigo != "098":
+            raise forms.ValidationError(
+                "Solo se permiten números que empiecen con 099 para Claro o 098 para Movistar."
+            )
+
+        return valor
