@@ -9,7 +9,17 @@ from administrativo.models import *
 # importar los formularios de forms.py
 from administrativo.forms import *
 
+from .models import NumeroTelefonico
+
 # Create your views here.
+
+
+def listar_numeros_telefonicos(request):
+    numeros = NumeroTelefonico.objects.all()
+
+    return render(request, "listarNumerosTelefonicos.html", {
+        "numeros": numeros
+    })
 
 def index(request):
     """
