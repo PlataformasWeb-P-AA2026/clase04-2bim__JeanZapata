@@ -1,0 +1,20 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Crear Comentario
+{% endblock %}
+
+{% block content %}
+
+<h2>Crear Comentario</h2>
+
+<form action="" method="post">
+  {% csrf_token %}
+  {{ formulario.as_p }}
+
+  <p>
+    <input type="submit" value="Agregar"/>
+  </p>
+</form>
+
+{% endblock %}

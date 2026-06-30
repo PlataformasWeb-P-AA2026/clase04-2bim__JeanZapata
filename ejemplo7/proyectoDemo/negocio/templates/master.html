@@ -28,9 +28,10 @@
           <li><a href="{% url 'lista_chefs' %}">Chefs</a></li>
             <li><a href="{% url 'lista_platos' %}">Platos</a></li>
           {% if user.is_authenticated %}
-            <li><a href="{% url 'logout_view' %}">Salir</a></li>
+          <li><a href="{% url 'logout_view' %}">Salir</a></li>
+          <li><a href="{% url 'crear_comentario' %}">Comentario</a></li>
           {% else %}
-            <li><a href="{% url 'login' %}">Ingresar</a></li>
+          <li><a href="{% url 'login' %}">Ingresar</a></li>
           {% endif %}
         </ul>
 
