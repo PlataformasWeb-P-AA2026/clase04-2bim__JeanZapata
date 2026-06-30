@@ -29,4 +29,6 @@ urlpatterns = [
          name='ver_plato'),
          path('crear/comentario', views.crear_comentario,
          name='crear_comentario'),
-]
+
+         
+]   
