@@ -1,0 +1,27 @@
+{% extends "master.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <h2>Contactar <i class="fa fa-envelope"></i></h2>
+        <form action="" method="post" id="contact">
+            {% csrf_token %}
+            
+            {% for field in formulario %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                </div>
+            {% endfor %}
+            
+            <p><input type='submit' value='Enviar' class="btn btn-primary" /></p>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#contact input, #contact textarea').addClass('form-control');
+    });
+</script>
+{% endblock %}
